@@ -11,9 +11,7 @@ const MapMarkerPopup = ({ seller }: { seller: any }) => {
   const t = useTranslations();
   
   const imageUrl =
-    seller.image && seller.image.trim() !== ''
-      ? seller.image
-      : process.env.NEXT_PUBLIC_IMAGE_PLACEHOLDER_URL || '/images/shared/upload.png';
+    seller.image && seller.image.trim() !== '' ? seller.image : '/images/logo.svg';
 
   const translateSellerCategory = (category: string): string => {
     switch (category) {
