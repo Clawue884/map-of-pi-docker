@@ -215,13 +215,15 @@ function SellerReviews({
                       <p>{review.time}</p>
                     </div>
                     <div className="flex gap-2 items-center">
-                      <Image
-                        src={review.image}
-                        alt="emoji image"
-                        width={50}
-                        height={50}
-                        className="object-cover rounded-md"
-                      />
+                      {review.image ? (
+                        <Image
+                          src={review.image}
+                          alt="emoji image"
+                          width={50}
+                          height={50}
+                          className="object-cover rounded-md"
+                        />
+                      ) : null}
                       <p className="text-xl max-w-[50px]" title={review.reaction}>
                         {review.unicode}
                       </p>
@@ -260,13 +262,15 @@ function SellerReviews({
                     <p>{review.time}</p>
                   </div>
                   <div className="flex gap-2 items-center">
-                    <Image
-                      src={review.image}
-                      alt="emoji image"
-                      width={50}
-                      height={50}
-                      className="object-cover rounded-md"
-                    />
+                    {review.image ? (
+                      <Image
+                        src={review.image}
+                        alt="emoji image"
+                        width={50}
+                        height={50}
+                        className="object-cover rounded-md"
+                      />
+                    ) : null}
                     <p className="text-xl max-w-[50px]" title={review.reaction}>
                       {review.unicode}
                     </p>
