@@ -1,0 +1,44 @@
+import React, { useEffect, useState } from 'react';
+import MapboxGL from '@react-native-mapbox-gl/maps';
+import { View, Text, StyleSheet } from 'react-native';
+
+MapboxGL.setAccessToken('YOUR_MAPBOX_ACCESS_TOKEN');
+
+export default function MapScreen() {
+  const [businesses, setBusinesses] = useState([]);
+
+  useEffect(() => {
+    fetch('https://api.example.com/businesses?lng=106.84513&lat=-6.21462&maxDistance=5000')
+      .then(response => response.json())
+      .then(data => setBusinesses(data));
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      <MapboxGL.MapView style={styles.map}>
+        <MapboxGL.Camera
+          zoomLevel={13}
+          centerCoordinate={[106.84513, -6.21462]}
+        />
+        {businesses.map(business => (
+          <MapboxGL.PointAnnotation
+            key={business._id}
+            id={business._id}
+            coordinate={business.location.coordinates}
+          >
+            <View style={styles.annotationContainer}>
+              <Text style={styles.annotationText}>{business.name}</Text>
+            </View>
+          </MapboxGL.PointAnnotation>
+        ))}
+      </MapboxGL.MapView>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  map: { flex: 1 },
+  annotationContainer: { backgroundColor: 'blue', padding: 5, borderRadius: 5 },
+  annotationText: { color: 'white' }
+});
