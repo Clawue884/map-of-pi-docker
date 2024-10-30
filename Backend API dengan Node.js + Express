@@ -1,0 +1,23 @@
+const express = require('express');
+const router = express.Router();
+const Business = require('../models/Business');
+
+// Tambah bisnis baru
+router.post('/addBusiness', async (req, res) => {
+  try {
+    const { name, description, coordinates, acceptedPayments, owner } = req.body;
+    const business = new Business({
+      name,
+      description,
+      location: { coordinates },
+      acceptedPayments,
+      owner
+    });
+    await business.save();
+    res.status(201).json(business);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+module.exports = router;
