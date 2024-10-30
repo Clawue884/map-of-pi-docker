@@ -1,0 +1,9 @@
+import auth from '@react-native-firebase/auth';
+
+async function signInWithEmail(email, password) {
+  try {
+    await auth().signInWithEmailAndPassword(email, password);
+  } catch (error) {
+    console.error(error);
+  }
+}
