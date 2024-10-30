@@ -1,0 +1,15 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract PiPayment {
+    address owner;
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    function transferPi(address _to, uint256 _amount) external {
+        require(msg.sender == owner, "Only owner can transfer Pi");
+        // Transfer logic based on Pi Network API integration
+    }
+}
