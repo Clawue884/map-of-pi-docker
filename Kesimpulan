@@ -1,0 +1,9 @@
+1. Frontend: React Native (untuk aplikasi seluler lintas platform), serta Mapbox atau Google Maps API untuk peta interaktif.
+
+
+2. Backend: Node.js + Express untuk API, MongoDB sebagai database untuk menyimpan data bisnis, dan Firebase Authentication untuk otentikasi pengguna.
+
+
+3. Smart Contract (Opsional): Untuk menangani transaksi Pi jika ingin diimplementasikan secara desentralisasi.
+
+Dengan pendekatan ini, Anda mendapatkan aplikasi yang aman, real-time, dan interaktif dengan teknologi modern yang melibatkan Node.js, React Native, dan MongoDB, serta opsi smart contract jika ingin terintegrasi dengan blockchain.
